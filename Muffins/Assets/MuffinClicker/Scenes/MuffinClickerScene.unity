@@ -337,6 +337,11 @@ MonoBehaviour:
   - {fileID: 1594047314}
   - {fileID: 28660337}
   spinSpeed: 20
+  minimumXandY: {x: -200, y: -200}
+  maximumXandY: {x: 200, y: 200}
+  muffinTextReward: {fileID: 1830297683697775921, guid: 91df3c9f714705b41a89f56f7a7dcd7b,
+    type: 3}
+  textRewardDuration: 10
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
