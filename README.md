@@ -2,4 +2,4 @@
 
 Class Project:
 
-- C# Scripting Fundamentals in Unity (4 Weeks)
+- C# Scripting Fundamentals in Unity (3 Weeks)
