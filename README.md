@@ -1,4 +1,6 @@
-# circuit-stream
+# Circuit Stream
+
+Circuit Stream: https://circuitstream.com
 
 Class Project:
 
