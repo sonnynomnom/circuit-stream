@@ -7,8 +7,7 @@ public class MuffinRewardAnimationInfo : MonoBehaviour
 {
     public RectTransform transform;
     public TMP_Text textField;
-
-    public float ellapsedTime = 0;
+    public float elapsedTime = 0;
 
     public void Destroy()
     {

@@ -20,7 +20,12 @@ public class Muffin : MonoBehaviour
 
     public int textRewardDuration = 10;
 
+    public float textAnimationSpeed = 10;
+
     public RectTransform myRectTransform;
+    public RectTransform referenceToHeader;
+
+    private List<MuffinRewardAnimationInfo> allRewardsInfo; 
 
     public void OnMuffinClick()
     {
@@ -33,8 +38,9 @@ public class Muffin : MonoBehaviour
     void Start()
     {
         print(message: "Start called");
-
         myRectTransform = GetComponent<RectTransform>();
+
+        allRewardsInfo = new List<MuffinRewardAnimationInfo>();
     }
 
     // Update is called once per frame
@@ -43,6 +49,7 @@ public class Muffin : MonoBehaviour
         // Rotation the spinlight every frame
         // spinLights.Rotate(0, 0, spinSpeed * Time.deltaTime);
         AnimateSpinLights();
+        AnimateAllRewardInfos();
     }
 
     public void AnimateSpinLights()
@@ -82,8 +89,53 @@ public class Muffin : MonoBehaviour
         animInfo.transform = newTextReward.GetComponent<RectTransform>();
         animInfo.textField = newTextReward.GetComponent<TMP_Text>();
 
+        allRewardsInfo.Add(animInfo);
 
     }
+
+    public void AnimateAllRewardInfos()
+    {
+        List<MuffinRewardAnimationInfo> expiredAnimations = new List<MuffinRewardAnimationInfo>();
+
+        foreach (MuffinRewardAnimationInfo currentInfo in allRewardsInfo)
+        {
+
+            bool shouldDestroy = !AnimateRewardInfo(currentInfo);
+
+            if (shouldDestroy)
+            {
+                expiredAnimations.Add(currentInfo);
+            }
+        }
+
+        foreach (MuffinRewardAnimationInfo currentInfo in expiredAnimations)
+        {
+            allRewardsInfo.Remove(currentInfo);
+            currentInfo.Destroy();
+        }
+
+    }
+
+    public bool AnimateRewardInfo(MuffinRewardAnimationInfo info)
+    {
+        info.elapsedTime += Time.deltaTime;
+
+        info.transform.anchoredPosition += Vector2.up * textAnimationSpeed * Time.deltaTime;
+
+        Color currentColor = info.textField.color;
+        currentColor.a = Mathf.Lerp(1, 0, info.elapsedTime / textRewardDuration);
+        info.textField.color = currentColor;
+
+        if (info.elapsedTime <= textRewardDuration)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     
     public Vector2 GetRandomPosition()
     {

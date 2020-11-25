@@ -342,6 +342,9 @@ MonoBehaviour:
   muffinTextReward: {fileID: 1830297683697775921, guid: 91df3c9f714705b41a89f56f7a7dcd7b,
     type: 3}
   textRewardDuration: 10
+  textAnimationSpeed: 10
+  myRectTransform: {fileID: 436119270}
+  referenceToHeader: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
