@@ -63,8 +63,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\HeaderUI.cs" />
     <Compile Include="Assets\Scripts\Muffin.cs" />
     <Compile Include="Assets\Scripts\MuffinRewardAnimationInfo.cs" />
+    <Compile Include="Assets\Scripts\SaveData.cs" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />

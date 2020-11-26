@@ -6,10 +6,8 @@ using TMPro;
 public class Muffin : MonoBehaviour
 {
 
-    public int numberOfEarnedMuffins = 0;
     public int muffinsPerClick = 1;
 
-    public TMP_Text muffinsText;
     public RectTransform[] spinLights;
     public float spinSpeed = 20;
 
@@ -23,14 +21,14 @@ public class Muffin : MonoBehaviour
     public float textAnimationSpeed = 10;
 
     public RectTransform myRectTransform;
-    public RectTransform referenceToHeader;
 
-    private List<MuffinRewardAnimationInfo> allRewardsInfo; 
+    private List<MuffinRewardAnimationInfo> allRewardsInfo;
+
+    public GameManager gameManager;
 
     public void OnMuffinClick()
     {
-        AddMuffins(muffinsPerClick);
-        UpdateTextUI();
+        gameManager.AddMuffins(muffinsPerClick);
         CreateTextReward();
     }
 
@@ -67,16 +65,6 @@ public class Muffin : MonoBehaviour
         }
     }
 
-    public void UpdateTextUI()
-    {
-        muffinsText.text = numberOfEarnedMuffins.ToString();
-    }
-
-    public void AddMuffins(int muffinsToAdd)
-    {
-        numberOfEarnedMuffins = numberOfEarnedMuffins + muffinsToAdd;
-    }
-
     public void CreateTextReward()
     {
         Vector2 pos = GetRandomPosition();
@@ -88,6 +76,8 @@ public class Muffin : MonoBehaviour
 
         animInfo.transform = newTextReward.GetComponent<RectTransform>();
         animInfo.textField = newTextReward.GetComponent<TMP_Text>();
+
+        animInfo.textField.text = muffinsPerClick.ToString();
 
         allRewardsInfo.Add(animInfo);
 

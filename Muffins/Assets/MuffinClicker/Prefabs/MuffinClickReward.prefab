@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1830297683697775922}
   - component: {fileID: 98540300322911503}
   - component: {fileID: 2813547723645897196}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: MuffinClickReward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: +2048
+  m_text: +1024
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b383af62b7347664e98a63357c87850c, type: 2}
   m_sharedMaterial: {fileID: -5295590237932550876, guid: b383af62b7347664e98a63357c87850c,
